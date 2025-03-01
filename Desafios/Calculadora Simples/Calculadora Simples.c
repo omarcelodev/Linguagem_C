@@ -1,4 +1,10 @@
-/*Calculadora Simples*/
+/*
+Autor: Marcelo
+Data: 25/02/2025
+Função do Programa: Fazer operações aritmeticas com 2 numeros
+Nome: Calculadora Simples
+*/
+
 #include <stdio.h>
 
 int main(){
