@@ -1,7 +1,7 @@
 /*
 Autor:Marcelo
 Data: 25/02/2025
-Função do programa: Calular a Area da circunferencia e apresenta-la ao usuario
+Função do programa: Calcular a Area da circunferencia e apresenta-la ao usuario
 
 Ex002: Escreva um prg em C que leia o raio de um circulo e calcule
 e imprima a sua area. Crie uma constante utilizando o qualificador
