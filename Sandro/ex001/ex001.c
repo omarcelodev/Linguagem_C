@@ -1,4 +1,10 @@
-/*Ex001: Escreva um prg em C que leia dois inteiros, calcule a divisão do primeiro
+/*
+Autor:Marcelo
+Data:25/02/2025
+Função do programa: Calcular a divisão de 2 numeros e apresenta-la ao
+usuario.
+
+Ex001: Escreva um prg em C que leia dois inteiros, calcule a divisão do primeiro
 pelo segundo número e imprima a resposta.*/
 
 #include <stdio.h>
