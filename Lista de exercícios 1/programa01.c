@@ -4,8 +4,8 @@
 int main(){
     char nomePessoa [40];
     char emailPessoa [40];
-    int livrosLidos;
-    float salario;
+    int livrosLidos=0;
+    float salario=0;
     setlocale(LC_ALL, "Portuguese");
 
     printf("Informe seus dados abaixo.\n\n");
