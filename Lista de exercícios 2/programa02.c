@@ -11,7 +11,6 @@ int main(){
     printf("Digite um número real: ");
     scanf("%f", &num1);
 
-    printf("%.2f", sqrt(num1));
-
+    printf("\nA raiz quadrada de %.2f = %.2f\n", num1, sqrt(num1));
 
     return 0;}

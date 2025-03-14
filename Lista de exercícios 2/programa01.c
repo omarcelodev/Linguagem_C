@@ -1,18 +1,19 @@
 #include <stdio.h>
-#include <locale.h>
 #include <math.h>
+#include <locale.h>
 
 int main(){
-    float num1=0, num2=0;
+    float num1, parteInteira, parteDecimal;
     setlocale(LC_ALL, "Portuguese");
 
     printf("Digite um número real: ");
     scanf("%f", &num1);
 
-    printf("O número arredondado pra cima é: %.1f\n", ceil(num1));
-    printf("O número arredondado para baixo é: %.1f\n", floor(num1));
-    printf("A parte decimal do número é: %.2f\n", modf(num1, &num2));
-    printf("A parte inteira do número é: %d", (int)num1);
+    parteDecimal = modff(num1, &parteInteira);
 
+    printf("Arredondado para cima: %.2f\n", ceil(num1));
+    printf("Arredondado para baixo: %.2f\n", floor(num1));
+    printf("Parte inteira: %.0f\n", parteInteira);
+    printf("Parte decimal: %.2f\n", parteDecimal);
 
     return 0;}
