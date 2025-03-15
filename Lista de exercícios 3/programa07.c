@@ -16,16 +16,16 @@ int main(){
     printf("Insira o terceiro número: ");
     scanf("%d", &num3);
 
-    if(num1 == num2 == num3){
+    if(num1 == num2 && num2 == num3){
         printf("Os números são iguais");
+    } else{
+    if(num1 > num2 && num1 > num3){
+        printf("O maior número é: %d\n", num1);
+    }else if(num2 > num1 && num2 > num3){
+        printf("O maior número é: %d\n", num2);
     }else{
-        if(num1 > num2 || num3){
-        printf("%d", num1);
+        printf("O maior número é: %d\n", num3);
     }}
 
-    if(num2 > num1 || num3){
-        printf("%d", num2);
-    }
-//travei professor fui pro proximo.
     return 0;
 }

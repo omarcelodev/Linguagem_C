@@ -14,12 +14,12 @@ int main(){
     scanf("%d", &num2);
 
     if(num1 == num2){
-        printf("Os números são iguais");
+        printf("Os números são iguais\n");
     } else{
          if(num1 > num2){
-        printf("%d", num1);
+        printf("O maior número é o %d\n", num1);
         }else{
-        printf("%d", num2);
+        printf("O maior número é o %d\n", num2);
         }
     }
 
