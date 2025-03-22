@@ -18,16 +18,12 @@ int main(){
     printf("\nDigite o número: ");
     scanf("%d", &num);
 
-    if(num <= 0 || num > 4){
-        printf("Número Inválido!");
-    } else if(num == 1){
-        printf("Estação escolhida: Primavera\n");
-    } else if(num == 2){
-        printf("Estação escolhida: Verão\n");
-    } else if(num == 3){
-        printf("Estação escolhida: Outono\n");
-    } else if(num == 4){
-        printf("Estação escolhida: Inverno\n");
+    switch(num){
+        case 1: printf("Estação escolida: Primavera\n"); break;
+        case 2: printf("Estação escolida: Verão\n"); break;
+        case 3: printf("Estação escolida: Outono\n"); break;
+        case 4: printf("Estação escolida: Inverno\n"); break;
+        default: printf("Estação inválida\n"); break;
     }
 
     return 0;

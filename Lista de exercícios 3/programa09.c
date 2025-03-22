@@ -25,34 +25,21 @@ int main(){
     printf("Digite um número: ");
     scanf("%d", &num);
 
-    if(num <= 0 || num > 12){
-        printf("Número inválido!");
-    } else if(num == 1){
-        printf("Você escolheu o mês de Janeiro");
-    } else if(num == 2){
-        printf("Você escolheu o mês de Fevereiro");
-    } else if(num == 3){
-        printf("Você escolheu o mês de Março");
-    } else if(num == 4){
-        printf("Você escolheu o mês de Abril");
-    } else if(num == 5){
-        printf("Você escolheu o mês de Maio");
-    } else if(num == 6){
-        printf("Você escolheu o mês de Junho");
-    } else if(num == 7){
-        printf("Você escolheu o mês de Julho");
-    } else if(num == 8){
-        printf("Você escolheu o mês de Agosto");
-    } else if(num == 9){
-        printf("Você escolheu o mês de Setembro");
-    } else if(num == 10){
-        printf("Você escolheu o mês de Outubro");
-    } else if(num == 11){
-        printf("Você escolheu o mês de Novembro");
-    } else if(num == 12){
-        printf("Você escolheu o mês de Dezembro");
+    switch(num){
+        case 1: printf("Você escolheu o mês de Janeiro\n"); break;
+        case 2: printf("Você escolheu o mês de Fevereiro\n"); break;
+        case 3: printf("Você escolheu o mês de Março\n"); break;
+        case 4: printf("Você escolheu o mês de Abril\n"); break;
+        case 5: printf("Você escolheu o mês de Maio\n"); break;
+        case 6: printf("Você escolheu o mês de Junho\n"); break;
+        case 7: printf("Você escolheu o mês de Julho\n"); break;
+        case 8: printf("Você escolheu o mês de Agosto\n"); break;
+        case 9: printf("Você escolheu o mês de Setembro\n"); break;
+        case 10: printf("Você escolheu o mês de Outubro\n"); break;
+        case 11: printf("Você escolheu o mês de Novembro\n"); break;
+        case 12: printf("Você escolheu o mês de Dezembro\n"); break;
+        default: printf("Insira um mês válido"); break;
     }
-
 
     return 0;
 }

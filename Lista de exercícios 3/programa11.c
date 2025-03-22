@@ -23,10 +23,9 @@ int main(){
     printf("Sua opção: ");
     scanf("%d", &escolha);
 
-
-    if(escolha > 4 || escolha < 0 ){
-        printf("\nNúmero inválido!\n");
-        }else if(escolha == 1){
+    switch(escolha){
+        case 1:
+            printf("\nSoma:");
             printf("\nInsira o primeiro número: ");
             scanf("%d", &num1);
             printf("Insira o segundo número: ");
@@ -35,8 +34,10 @@ int main(){
             soma = num1 + num2;
 
             printf("%d + %d = %d\n", num1, num2, soma);
+            break;
 
-        }else if(escolha == 2){
+        case 2:
+            printf("\nMultiplicação:");
             printf("\nInsira o primeiro número: ");
             scanf("%d", &num1);
             printf("Insira o segundo número: ");
@@ -45,35 +46,39 @@ int main(){
             produto = num1 * num2;
 
             printf("%d x %d = %d\n", num1, num2, produto);
+            break;
 
-        }else if(escolha == 3){
+        case 3:
+            printf("\nDivisão:");
             printf("\nInsira o primeiro número: ");
             scanf("%d", &num1);
             printf("Insira o segundo número: ");
             scanf("%d", &num2);
-                if(num2 == 0){
-                    printf("O segundo número deve ser diferente de 0\n");
-                }else{
-                    razao = (float)num1 / num2;
+            if(num2 == 0){
+                printf("O segundo número deve ser diferente de 0\n");
+            }else{
+                razao = (float)num1 / num2;
 
-                    printf("%d / %d = %.2f\n", num1, num2, razao);
-                }
+                printf("%d / %d = %.2f\n", num1, num2, razao);
+            }
+            break;
 
-        }else if(escolha == 4){
+        case 4:
+            printf("\nRaiz Quadrada:");
             printf("\nInsira o número: ");
             scanf("%d", &num1);
-                if(num1 < 0){
-                    printf("Insira um número válido\n");
-                }else{
-            raiz = sqrt(num1);
+            if(num1 < 0){
+                printf("Insira um número válido\n");
+            }else{
+                raiz = sqrt(num1);
+                printf("Raiz quadrada de %d = %.3f\n", num1, raiz);
+            }
+            break;
 
-            printf("Raiz quadrada de %d = %.3f\n", num1, raiz);
-                }
+        case 0:
+             printf("Programa encerrado.\n"); break;
 
-        }else if(escolha == 0){
-            printf("Programa encerrado.\n");
-            exit(0);
-        }
-
+        default: printf("Escolha um opção válida.\n");
+    }
     return 0;
 }

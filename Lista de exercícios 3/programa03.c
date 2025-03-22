@@ -10,7 +10,7 @@ int main(){
     printf("Informe sua idade: ");
     scanf("%d", &idade);
 
-    if(idade <= 0 || idade > 123){
+    if(idade < 1 || idade > 123){
         printf("Informe uma idade válida");
     } else{
          if(idade >= 18){
