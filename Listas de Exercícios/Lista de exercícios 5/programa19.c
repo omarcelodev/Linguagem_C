@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+    int cont = 0;
+    setlocale(LC_ALL, "Portuguese");
+    system("color 0A");
+
+    for(cont = 1; cont < 21; cont = cont +1){a
+        printf("%d\n", cont);
+    }
+
+    return 0;
+}
+
+
