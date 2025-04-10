@@ -5,7 +5,7 @@
 
 int main(){
     int num1 = 0, num2 = 0;
-    int i = 0, soma = 0;
+    int i, soma = 0;
 
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
@@ -27,11 +27,11 @@ int main(){
 
     }while(num1 < 1 || num1 > 50 || num2 < 1 || num2 > 50 || num1 == num2 || num1 > num2);
 
-
-    while(i < soma){
-        soma = nu
-
+    for(i = num1; i <= num2; i++){
+        soma += i;
     }
+
+    printf("A somatoria dos números entre %d e %d = %d", num1, num2, soma);
 
 
     return 0;
