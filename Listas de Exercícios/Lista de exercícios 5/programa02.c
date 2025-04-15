@@ -3,12 +3,12 @@
 #include <locale.h>
 
 int main(){
-    int cont;
+    int i = 0;
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
     do{
         printf("Palavra Qualquer\n");
-        cont = cont + 1;
-    }while(cont < 20);
+        i++;
+    }while(i < 20);
 }

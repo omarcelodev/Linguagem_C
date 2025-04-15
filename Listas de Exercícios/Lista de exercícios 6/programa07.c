@@ -13,13 +13,14 @@ int main(){
 
     while(num < 1 || num > 5){
         if(num < 1 || num > 5){
-        printf("Numéro inválido\n");
-        printf("Redigite: ");
-        scanf("%d", &num);
+            printf("\nNuméro inválido\n");
+
+            printf("Redigite: ");
+            scanf("%d", &num);
         }
     }
 
-    printf("Número válido.\n");
+    printf("Número informado está correto.\n");
 
     return 0;
 }

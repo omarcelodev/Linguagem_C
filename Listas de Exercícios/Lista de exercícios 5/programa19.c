@@ -7,7 +7,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
-    for(cont = 1; cont < 21; cont = cont +1){a
+    for(cont = 1; cont < 21; cont = cont +1){
         printf("%d\n", cont);
     }
 

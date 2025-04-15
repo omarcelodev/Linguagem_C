@@ -1,0 +1,13 @@
+Algoritmo While Portugol
+
+     inteiro i
+
+     início
+
+        i <- 1
+        enquanto i ≤ 20 faça
+           escreva i
+           i <- i + 1
+        fim-enquanto
+
+     fim

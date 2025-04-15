@@ -8,15 +8,17 @@ int main(){
     system("color 0A");
 
     do{
-    printf("Informe um número inteiro positivo: ");
-    scanf("%d", &num);
-    if(num <= 0){
-        printf("Número inválido, Tente novamente!\n");
-    } else{
-       for(i=1; i <= num; i++){
-        printf("%d\n", i);
-       }
-    }
+        printf("Informe um número inteiro positivo: ");
+        scanf("%d", &num);
+
+        if(num <= 0){
+            printf("\nNúmero inválido, Tente novamente!\n");
+        }else{
+            for(i=1; i <= num; i++){
+            printf("%d\n", i);
+            }
+        }
+
     }while(num <= 0);
 
     return 0;

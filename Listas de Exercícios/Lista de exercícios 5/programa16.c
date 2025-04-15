@@ -7,14 +7,17 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
-     while (1) {
-        if (kbhit()) { // se alguém apertou uma tecla
-            char tecla = getch(); // captura a tecla
-            printf("Você pressionou: %c\n", tecla);
+     while (1){
+        printf("Marcelo\n");
 
-            if (tecla == '27') break; // sai do programa se apertar 'q'
+        if(kbhit()){
+            char tecla = getch();
+
+            if(tecla == 27){
+                break;
+            }
         }
-    }
+     }
 
     return 0;
 }

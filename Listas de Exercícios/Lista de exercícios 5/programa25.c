@@ -4,20 +4,27 @@
 
 int main(){
     int i, num = 0, soma = 0;
-    float media;
+    float media = 0;
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
     printf("Digite um número inteiro: ");
     scanf("%d", &num);
 
-    for(i = 0; i <= num; i++ ){
-        soma = soma + i;
+    for(i = 1; i <= num; i++ ){
+        soma += i;
+        printf("%d", i);
+
+        if( i < num){
+            printf(" + ");
+        }else{
+            printf(" = %d\n", soma);
+        }
     }
 
     media = (float)soma / num;
+    printf("%d / %d = %.2f", soma, num, media);
 
-    printf("A média dos numéros de 1 até %d é %.2f\n", num, media);
     return 0;
 }
 

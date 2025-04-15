@@ -12,16 +12,18 @@ int main(){
 
     do{
         printf("Digite dois valores entre 1 e 50.\n");
+
         printf("Primeiro Valor: ");
         scanf("%d", &num1);
+
         printf("Segundo Valor: ");
         scanf("%d", &num2);
 
         if(num1 < 1 || num1 > 50 || num2 < 1 || num2 > 50){
             printf("\nIntervalo inválido. Tente novamente!\n");
-        } else if(num1 == num2){
+        }else if(num1 == num2){
             printf("\nIntervalo inválido. Tente novamente!\n");
-        } else if(num1 > num2){
+        }else if(num1 > num2){
             printf("\nIntervalo inválido. Tente novamente!\n");
         }
 
@@ -29,10 +31,14 @@ int main(){
 
     for(i = num1; i <= num2; i++){
         soma += i;
+        printf("%d", i);
+
+        if(i < num2){
+            printf(" + ");
+        }else{
+            printf(" = %d", soma);
+        }
     }
-
-    printf("A somatoria dos números entre %d e %d = %d", num1, num2, soma);
-
 
     return 0;
 }

@@ -11,13 +11,13 @@ int main(){
     printf("Informe um número inteiro positivo: ");
     scanf("%d", &num);
     if(num <= 0){
-        printf("Número inválido, Tente novamente!\n");
+        printf("\nNúmero inválido, Tente novamente!\n");
     } else{
         while(i <= num){
         printf("%d\n", i);
         i++;
         }
-    }
+      }
     }while(num <= 0);
 
     return 0;

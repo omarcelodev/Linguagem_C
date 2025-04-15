@@ -15,7 +15,7 @@ int main(){
     scanf("%d", &num2);
 
     if(num2 < num1){
-        printf("Intervalo Inválido");
+        printf("Intervalo Inválido\n");
     } else{
         for(cont = num1; cont <= num2; cont = cont + 1){
             printf("%d\n", cont);

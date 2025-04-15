@@ -7,11 +7,17 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
-    for(i=0; i <= 10; i = i + 1){
-        soma = soma + i;
-    }
+    for(i=1; i <= 10; i++){
+        soma += i;
+        printf("%d", i);
 
-    printf("A soma dos números de 1 a 10 é %d\n",soma);
+        if(i < 10){
+            printf(" + ");
+        } else{
+            printf(" = %d\n", soma);
+        }
+
+    }
 
     return 0;
 }

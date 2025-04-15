@@ -15,8 +15,8 @@ int main(){
         printf("Digite um número: ");
         scanf("%d", &num);
 
-        if(num < 0){
-        printf("\nDigite um número POSITIVO!\n\n");
+        if(num <= 0){
+        printf("\nDigite um número Positivo e maior que 0!\n\n");
 
         } else{
             for(cont = 0; cont < num; cont = cont + 1){
@@ -24,7 +24,7 @@ int main(){
             }
         }
 
-    }while(num < -1);
+    }while(num <= 0);
 
     return 0;
 }

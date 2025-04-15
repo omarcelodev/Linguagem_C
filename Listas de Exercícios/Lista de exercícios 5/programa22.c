@@ -13,15 +13,15 @@ int main(){
         printf("Digite um número: ");
         scanf("%d", &num);
 
-        if(num < 0){
-            printf("Digite um número positivo\n");
+        if(num <= 0){
+            printf("Digite um número positivo e maior que 0\n");
         } else{
                 for(cont = 1; cont <= num; cont = cont + 1){
                     printf("%d\n", cont);
                 }
             }
 
-    }while(num < 0);
+    }while(num <= 0);
 
     return 0;
 }

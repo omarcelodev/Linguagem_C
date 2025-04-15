@@ -4,8 +4,7 @@
 #include <time.h>
 
 int main(){
-    int cont = 0;
-    int indicador = 0;
+    int cont = 0, indicador = 0, num = 0;
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
@@ -14,13 +13,12 @@ int main(){
     printf("Numeros da MiniSena:");
 
     while(cont < 10){
-        int num = 1 + rand() %100;
+        num = 1 + rand() %100;
         indicador = indicador + 1;
 
         printf("\n%d°Número: %d\n", indicador, num);
-        cont = cont + 1;
+        cont++;
     }
-
 
     return 0;
 }

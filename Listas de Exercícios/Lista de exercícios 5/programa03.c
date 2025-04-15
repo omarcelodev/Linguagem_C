@@ -3,11 +3,11 @@
 #include <locale.h>
 
 int main(){
-    int cont;
+    int i
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
-    for(cont = 0; cont < 20; cont++){
+    for(i = 0; i < 20; i++){
         printf("Palavra Qualquer\n");
     }
 

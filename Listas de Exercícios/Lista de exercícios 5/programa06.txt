@@ -1,0 +1,11 @@
+Algoritmo For Portugol
+
+     inteiro i
+
+     início
+
+	para i de 1 até 20 faça
+	     escreva i
+	fim-para
+
+     fim

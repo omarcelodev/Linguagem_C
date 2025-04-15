@@ -12,5 +12,7 @@ int main(){
         scanf("%d", &num);
     }
 
+    printf("Programa Encerrado.\n");
+
     return 0;
 }
