@@ -4,6 +4,7 @@
 
 int main(){
     int num1=0, num2=0, i=0, somaPares=0, somaImpares=0;
+    int primeiro = 1;
 
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
@@ -28,33 +29,29 @@ int main(){
 
     for(i = num1; i <= num2; i++){
         if(i % 2 == 0){
-            somaPares += i;
+            if(!primeiro) printf(" + ");
             printf("%d", i);
-
-            if(i < num2){
-                printf(" + ");
-            }else{
-                printf(" = %d\n", somaPares);
-            }
-
+            somaPares += i;
+            primeiro = 0;
         }
     }
+
+    printf(" = %d\n", somaPares);
 
     printf("\nSoma dos impares entre %d e %d:\n", num1, num2);
 
+    primeiro = 1;
+
      for(i = num1; i <= num2; i++){
-        if(i % 2 != 0){
-            somaImpares += i;
+         if(i % 2 != 0){
+            if(!primeiro) printf(" + ");
             printf("%d", i);
-
-            if(i < (num2-1) ){
-                printf(" + ");
-            }else{
-                printf(" = %d\n", somaImpares);
-            }
-
+            somaImpares += i;
+            primeiro = 0;
         }
-
     }
+
+    printf(" = %d\n", somaImpares);
+
     return 0;
 }
