@@ -5,8 +5,8 @@
 #define TAM 50
 
 int main(){
-    float notas[TAM];
-    int i = 0, opcao, notasDigitadas = i;
+    float notas[TAM], soma = 0, media = 0;
+    int i = 0, opcao;
     bool notaInvalida;
 
     setlocale(LC_ALL, "Portuguese");
@@ -53,9 +53,24 @@ int main(){
 
     switch(opcao){
         case 1:
-            for(int i = 0; i < notasDigitadas; i++){
-                printf("%.2f", notas[i]);
+            printf("Notas Digitadas:\n");
+            for (int j = 0; j < i; j++){
+                printf("Nota %d: %.2f\n", j + 1, notas[j]);
             }
+            break;
+
+        case 2:
+            printf("Média da turma:\n");
+
+            soma = 0;
+
+            for(int j = 0; j < i; j++){
+                soma+= notas[j];
+            }
+
+            media = soma / i;
+
+            printf("A média da tuma é %.2f / %d = %.2f\n", soma, i, media);
             break;
     }
 
