@@ -5,12 +5,20 @@
 #define TAM 50
 
 int main(){
-    float notas[TAM], soma = 0, media = 0, altnota = 0;
-    int i = 0, opcao = 0, indice = 0, opcaoC3;
-    bool notaInvalida;
+    float notas[TAM], soma = 0, media = 0;
+    float notaAlterada = 0, maiorNota = -1;
+    float menorNota = 11, notaReferencia = 0;
+
+    int i = 0, opcaoMenu = 0, indiceNota = 0, opcaoAlterarOutraNota = 0;
+
+    //i = quantidade de notas.
+
+    bool notaInvalidaAtual;
 
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
+
+
 
     printf("==========================================\n");
     printf("       SISTEMA DE LANÇAMENTO DE NOTAS     \n");
@@ -19,18 +27,22 @@ int main(){
     printf("Digite -1 a qualquer momento para encerrar \no cadastro de notas.\n");
     printf("------------------------------------------\n\n");
 
+
+
     do{
         do{
-            notaInvalida = false;
+            notaInvalidaAtual = false;
+
             printf("Insira a %dª nota: ", i + 1);
             scanf("%f", &notas[i]);
 
             if(notas[i] < 0 && notas[i] != -1 || notas[i] > 10){
                 printf("\nNota Inválida, Redigite!\n");
-                notaInvalida = true;
+
+                notaInvalidaAtual = true;
             }
 
-        }while(notaInvalida);
+        }while(notaInvalidaAtual);
 
         if(notas[i] == -1){
             break;
@@ -40,8 +52,10 @@ int main(){
 
     }while( i < TAM);
 
+
+
     do{
-        printf("\n============================================================\n");
+        printf("\n\n============================================================\n");
         printf("Escolha uma opção:\n");
         printf("\n(1) Imprimir todas as notas digitadas para conferência\n");
         printf("(2) Calcular e imprimir a média da turma\n");
@@ -52,15 +66,18 @@ int main(){
         printf("(7) Imprimir as notas abaixo de uma nota informada\n");
         printf("(0) Encerrar o programa\n");
         printf("Opção: ");
-        scanf("%d", &opcao);
+        scanf("%d", &opcaoMenu);
 
-        switch(opcao){
+        switch(opcaoMenu){
             case 1:
                 printf("\nNotas Digitadas:\n");
+
                 for (int j = 0; j < i; j++){
                     printf("Nota %d: %.2f\n", j + 1, notas[j]);
                 }
+
                 break;
+
 
             case 2:
                 printf("Média da turma:\n");
@@ -74,11 +91,13 @@ int main(){
                 media = soma / i;
 
                 printf("A média da turma é %.2f (soma: %.2f / quantidade de notas: %d)\n", media, soma, i);
+
                 break;
+
 
             case 3:
                 do{
-                    indice = 0;
+                    indiceNota = 0;
                     printf("\nNotas Digitadas:\n");
 
                     for (int j = 0; j < i; j++){
@@ -87,43 +106,82 @@ int main(){
 
                     do{
                         printf("Qual nota você deseja alterar? (1 a %d): ", i);
-                        scanf("%d", &indice);
+                        scanf("%d", &indiceNota);
 
-                        if(indice < 1 || indice > i){
+                        if(indiceNota < 1 || indiceNota> i){
                         printf("Índice inválido! Tente novamente.\n");
                         }
-                    }while(indice < 1 || indice > i);
+
+                    }while(indiceNota < 1 || indiceNota > i);
+
 
                     do{
                         printf("Digite o novo valor para a nota: ");
-                        scanf("%f", &altnota);
+                        scanf("%f", &notaAlterada);
 
-                        if(altnota < 0 || altnota > 10){
+                        if(notaAlterada < 0 || notaAlterada> 10){
                         printf("\nNota Inválida, Redigite!\n");
                         }
-                    }while(altnota < 0 || altnota > 10);
 
-                    notas[indice - 1] = altnota;
+                    }while(notaAlterada < 0 || notaAlterada > 10);
+
+
+                    notas[indiceNota- 1] = notaAlterada;
+
 
                     printf("\nNota alterada com sucesso.\n");
 
                     printf("Notas Atualizadas:\n");
+
                     for (int j = 0; j < i; j++){
                         printf("Nota %d: %.2f\n", j + 1, notas[j]);
                     }
 
                     printf("\nDeseja alterar outra nota? (1 para sim, 0 para não): ");
-                    scanf("%d", &opcaoC3);
+                    scanf("%d", &opcaoAlterarOutraNota);
 
-                }while(opcaoC3 == 1);
+                }while(opcaoAlterarOutraNota == 1);
 
+                break;
+
+
+            case 4:
+                maiorNota = notas[0];
+                for(int j = 1; j < i; j++){
+                    if(notas[j] > maiorNota){
+                        maiorNota = notas[j];
+                    }
+                }
+
+                printf("A maior nota é: %.2f\n", maiorNota);
+                break;
+
+            case 5:
+                menorNota = notas[0];
+                for(int j = 1; j < i; j++){
+                    if(notas[j] < menorNota){
+                        menorNota = notas[j];
+                    }
+                }
+                printf("A menor nota é: %.2f\n", menorNota);
+                break;
+
+            case 6:
+                printf("Informe a nota base: ");
+                scanf("%f", &notaReferencia);
+
+                for(int j = 0; j < i; j++){
+                    if(notaReferencia < notas[j]){
+                        printf("%.2f", notas[j]);
+                    }
+                }
                 break;
 
             case 0:
                 printf("Programa Encerrado.\n");
                 break;
         }
-    }while(opcao != 0);
+    }while(opcaoMenu != 0);
 
     return 0;
 }
