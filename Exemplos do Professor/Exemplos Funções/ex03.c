@@ -25,3 +25,6 @@ int main(){
 
     return 0;
 }
+
+//As variaveis de uma função não conssegue enxergar as variaveis de outra função
+//Cada função é tratada como se fosse um programa a parte
