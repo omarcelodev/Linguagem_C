@@ -52,7 +52,7 @@ int main(){
 
     }while( i < TAM);
 
-
+    system("cls");
 
     do{
         printf("\n\n============================================================\n");
@@ -172,7 +172,20 @@ int main(){
 
                 for(int j = 0; j < i; j++){
                     if(notaReferencia < notas[j]){
-                        printf("%.2f", notas[j]);
+                        printf("Notas Acima de %.2f", notaReferencia);
+                        printf("%.2f\n", notas[j]);
+                    }
+                }
+                break;
+
+            case 7:
+                printf("Informe a nota base: ");
+                scanf("%f", &notaReferencia);
+
+                for(int j = 0; j < i; j++){
+                    if(notaReferencia > notas[j]){
+                        printf("Notas Abaixo de %.2f", notaReferencia);
+                        printf("%.2f\n", notas[j]);
                     }
                 }
                 break;
