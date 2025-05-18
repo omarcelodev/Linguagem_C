@@ -73,22 +73,44 @@ void gerarNovosNumeros(int numeros[]){
 
 int main(){
     int numeros[TAM], opcao;
-    int intervalo1 = 0, intervalo2 = 0;
 
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
-
-    numeros[1] = 4;
 
     do{
 
         opcao = menu();
 
         switch(opcao){
+            case 1:
+
+                printf("Imprimir números com índice - 1");
+                printf("Imprimir numero sem índice - 0");
+                scanf("%d", &indice);
+
+                printf("Imprimir na Horizontal - 1");
+                printf("Imprimir na Vertical - 0");
+                scanf("%d", &posicao)
+
+                for(int i; i < TAM; i++){
+                    printf("%d\n", numeros[i]);
+                }
+
+
+                break;
+
+
+
+
+
+
+
+
             case 12:
                 gerarNovosNumeros(numeros);
+                break;
 
-
+            default: printf("Opção Inválida"); break;
         }
 
     }while(opcao != 0);
