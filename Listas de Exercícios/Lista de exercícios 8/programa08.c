@@ -23,13 +23,19 @@ int validacaoNumero(int num){
     return num;
 }
 
-char lerPalavra(){
-    char palavra[50];
+void lerPalavra(char palavra[]){
+
 
     printf("Digite uma palavra: ");
-    fgets(palavra, 50, stdin);
+    scanf("%s", palavra);
+}
 
-    return palavra;
+void imprimirPalavra (int num, char palavra[]){
+
+    for(int i = 1; i <= num; i++){
+        printf("[%d]- %s\n", i, palavra);
+    }
+
 }
 
 int main(){
@@ -40,12 +46,9 @@ int main(){
     system("color 0A");
 
     num = lerNumero("Digite um número positivo: ");
-
     num = validacaoNumero(num);
-
-    palavra[50] = lerPalavra(palavra);
-
-    printf("%s", palavra);
+    lerPalavra(palavra);
+    imprimirPalavra(num, palavra);
 
 
     return 0;
