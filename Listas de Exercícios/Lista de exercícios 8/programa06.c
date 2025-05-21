@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <locale.h>
 
-char Mensagem
 
-int lerNumero(void){
+int lerNumero(char mensagem[]){
     int num;
-    printf("Digite o primeiro número: ");
+
+    printf("%s", mensagem);
     scanf("%d", &num);
 
     return num;
@@ -31,9 +31,9 @@ int main(){
     setlocale(LC_ALL,"Portuguese");
     system("color 0A");
 
-    num1 = lerNumero();
-    num2 = lerNumero();
-    num3 = lerNumero();
+    num1 = lerNumero("Digite o primeiro numero: ");
+    num2 = lerNumero("Digite o segundo numero: ");
+    num3 = lerNumero("Digite o terceiro numero: ");
 
     verificarMaiorNumero(num1, num2, num3);
 
