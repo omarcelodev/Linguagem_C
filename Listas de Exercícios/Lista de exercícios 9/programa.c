@@ -91,8 +91,8 @@ int main(){
                 printf("Sua opção: ");
                 scanf("%d", &indice);
 
-                printf("Imprimir na Horizontal - 1");
-                printf("Imprimir na Vertical - 0");
+                printf("Imprimir na Horizontal - 1\");
+                printf("Imprimir na Vertical - 0\n");
                 scanf("%d", &posicao);
 
                 for(int i; i < TAM; i++){

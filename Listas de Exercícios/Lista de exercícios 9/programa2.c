@@ -26,12 +26,8 @@ int lerNumero(char mensagem[]){
 //Verificação de array zerada
 
 void verificarArrayZerada(int arrayNumeros[]){
-    int verificacao;
-    for(int i = 0; i < TAM; i++){
-        verificacao = arrayNumeros[i];
-    }
 
-    if(verificacao == 0){
+    if(arrayNumeros[0] == 0){
         printf("Array Zerada, Preencha com a opcao 12");
     }
 
@@ -61,7 +57,6 @@ int menu(int arrayNumeros){
     printf("=========================================\n");
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
-    verificarArrayZerada(arrayNumeros);
 
     return opcao;
 }
@@ -177,8 +172,11 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
+
+
     do{
         opcao = menu(arrayNumeros);
+        verificarArrayZerada(arrayNumeros);
 
         switch(opcao){
             case 1: listarNumeros(arrayNumeros); break;
@@ -192,3 +190,4 @@ int main(){
     return 0;
 }
 
+//Encaixando e arrumando o avios de array zerada.
