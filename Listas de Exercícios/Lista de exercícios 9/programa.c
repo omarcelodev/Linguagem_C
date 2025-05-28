@@ -72,7 +72,9 @@ void gerarNovosNumeros(int numeros[]){
 }
 
 int main(){
-    int numeros[TAM], opcao;
+    int numeros[TAM] = {0}, opcao;
+    int indice;
+    int posicao;
 
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
@@ -84,13 +86,14 @@ int main(){
         switch(opcao){
             case 1:
 
-                printf("Imprimir números com índice - 1");
-                printf("Imprimir numero sem índice - 0");
+                printf("Imprimir números com índice - 1\n");
+                printf("Imprimir numero sem índice - 0\n");
+                printf("Sua opção: ");
                 scanf("%d", &indice);
 
                 printf("Imprimir na Horizontal - 1");
                 printf("Imprimir na Vertical - 0");
-                scanf("%d", &posicao)
+                scanf("%d", &posicao);
 
                 for(int i; i < TAM; i++){
                     printf("%d\n", numeros[i]);
