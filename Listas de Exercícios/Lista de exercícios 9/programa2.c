@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
+#include <stdbool.h>
 #define TAM 5
 
 int indice = 1, posicao = 0;
@@ -14,27 +15,27 @@ int lerNumero(char mensagem[]){
     printf("%s", mensagem);
     scanf("%d", &numero);
 
-    if(numero < 0){
+    if(numero <=0){
         printf("Número Inválido\n");
     }
 
-    }while(numero < 0);
+    }while(numero <= 0);
 
     return numero;
 }
 
 //Verificação de array zerada
-
-void verificarArrayZerada(int arrayNumeros[]){
+bool verificarArrayZerada(int arrayNumeros[]){
 
     if(arrayNumeros[0] == 0){
-        printf("Array Zerada, Preencha com a opcao 12");
+        return true;
+    }else{
+        return false;
     }
-
 }
 
 //Imprimindo Menu
-int menu(int arrayNumeros){
+int menu(){
     int opcao;
 
     printf("\n\n=========================================\n");
@@ -125,7 +126,7 @@ void imprimirListagem(int arrayNumeros[]){
 }
 
 //Listar Números na Array
-void listarNumeros(int arrayNumeros){
+void listarNumeros(int arrayNumeros[]){
 
     printf("\n+--------------------------+\n");
     printf("|Números contidos na Array:|\n");
@@ -144,8 +145,10 @@ void listarNumerosPares(int arrayNumeros[]){
 //Gerar novos números pra array
 void gerarNovosNumeros(int arrayNumeros[]){
     int intervalo1, intervalo2;
-    printf("Digite um intervalo de números a ser gerado.\n");
-    printf("OBS: Os números não podem ser negativos e devem ser maiores que 0.\n");
+    printf("+-----------------------------------------------------------------+\n");
+    printf("|Digite um intervalo de números a ser gerado.                     |\n");
+    printf("|OBS: Os números não podem ser negativos e devem ser maiores que 0|.\n");
+    printf("+-----------------------------------------------------------------+\n");
 
     do{
         intervalo1 = lerNumero("Digite o primeiro número: ");
@@ -158,7 +161,8 @@ void gerarNovosNumeros(int arrayNumeros[]){
     }while(intervalo2 < intervalo1 || intervalo1 <= 0 || intervalo2 <= 0 || intervalo1 == intervalo2);
 
     srand(time(NULL));
-    printf("Os números gerados foram:\n");
+    printf("\nArray Preenchida com sucesso!");
+    printf("\nOs números gerados foram:\n");
 
     for(int i = 0; i < TAM; i++){
         arrayNumeros[i] = rand() % (intervalo2 - intervalo1 + 1) + intervalo1;
@@ -175,11 +179,17 @@ int main(){
 
 
     do{
-        opcao = menu(arrayNumeros);
-        verificarArrayZerada(arrayNumeros);
+        opcao = menu();
+        if(opcao < 12 && verificarArrayZerada(arrayNumeros)){
+            printf("+------------------------------------------------------------+\n");
+            printf("|A Array está zerada! Preencha com a opcão 12 para continuar.|\n");
+            printf("+------------------------------------------------------------+\n");
+            continue;
+        }
 
         switch(opcao){
-            case 1: listarNumeros(arrayNumeros); break;
+
+            case 1:listarNumeros(arrayNumeros); break;
             case 12: gerarNovosNumeros(arrayNumeros); break;
             case 13: configurarListagem(); break;
             default: printf("Opção Inválida"); break;
@@ -189,5 +199,3 @@ int main(){
 
     return 0;
 }
-
-//Encaixando e arrumando o avios de array zerada.
