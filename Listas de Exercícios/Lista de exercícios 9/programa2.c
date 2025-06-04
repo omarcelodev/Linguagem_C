@@ -62,6 +62,22 @@ int menu(){
     return opcao;
 }
 
+//Validar escolha da Configuração de Listagem.
+int lerSimOuNao(char frase[]){
+    int resposta = -1;
+    do{
+        printf("%s", frase);
+        scanf("%d", &resposta);
+
+        if(resposta != 0 && resposta != 1){
+            printf("Opção Inválida!\n");
+        }
+
+    }while(resposta !=0 && resposta != 1);
+
+    return resposta;
+}
+
 //Configurar exibição das Listagens
 void configurarListagem(void){
     printf("\n+--------------------------------------+");
@@ -78,22 +94,6 @@ void configurarListagem(void){
     posicao = lerSimOuNao("Sua opção: ");
 
     printf("Configurações aplicadas com sucesso!");
-}
-
-//Validar escolha da Configuração de Listagem.
-int lerSimOuNao(char frase[]){
-    int resposta = -1;
-    do{
-        printf("%s", frase);
-        scanf("%d", &resposta);
-
-        if(resposta != 0 && resposta != 1){
-            printf("Opção Inválida!\n");
-        }
-
-    }while(resposta !=0 && resposta != 1);
-
-    return resposta;
 }
 
 //Imprimir Listagens
@@ -137,9 +137,60 @@ void listarNumeros(int arrayNumeros[]){
     printf("\nFim da Listagem!\n");
 }
 
-//Listar Somente números pares
-void listarNumerosPares(int arrayNumeros[]){
+//Verificar se o número é par
+bool isPar(int numero){
+    return numero % 2 == 0;
+}
 
+//Listar Números pares
+void listarPares(int arrayNumeros[]){
+    printf("Números Pares:\n");
+
+    for(int i = 0; i < TAM; i++){
+        if(isPar(arrayNumeros[i])){
+            printf("[%d] = %d\n", i, arrayNumeros[i]);
+        }
+    }
+}
+
+//Verificar se o número é ímpar
+bool isImpar(int numero){
+    return numero % 2 != 0;
+}
+
+//Listar números impares
+void listarImpares(int arrayNumeros[]){
+    printf("Números Impares:\n");
+
+    for(int i = 0; i < TAM; i++){
+        if(isImpar(arrayNumeros[i])){
+            printf("[%d] = %d\n", i, arrayNumeros[i]);
+        }
+    }
+}
+
+//Verificar se é primo
+bool isPrimo(int numero){
+    int cont = 0;
+
+    for(int i = 1; i <= numero; i++){
+        if(numero % i == 0){
+            cont++;
+        }
+    }
+
+    return(cont == 2);
+}
+
+//Listar números primos
+void listarPrimos(int arrayNumeros[]){
+    printf("Números Primos:\n");
+
+    for(int i = 0; i < TAM; i++){
+        if(isPrimo(arrayNumeros[i])){
+            printf("[%d] = %d\n", i, arrayNumeros[i]);
+        }
+    }
 }
 
 //Gerar novos números pra array
@@ -189,7 +240,10 @@ int main(){
 
         switch(opcao){
 
-            case 1:listarNumeros(arrayNumeros); break;
+            case 1: listarNumeros(arrayNumeros); break;
+            case 2: listarPares(arrayNumeros); break;
+            case 3: listarImpares(arrayNumeros); break;
+            case 4: listarPrimos(arrayNumeros); break;
             case 12: gerarNovosNumeros(arrayNumeros); break;
             case 13: configurarListagem(); break;
             default: printf("Opção Inválida"); break;
