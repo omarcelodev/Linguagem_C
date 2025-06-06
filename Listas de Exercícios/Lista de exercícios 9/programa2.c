@@ -144,13 +144,25 @@ bool isPar(int numero){
 
 //Listar Números pares
 void listarPares(int arrayNumeros[]){
-    printf("Números Pares:\n");
+    int totalPares = 0;
+
+    printf("\n=== NÚMEROS PARES ===\n");
 
     for(int i = 0; i < TAM; i++){
         if(isPar(arrayNumeros[i])){
             printf("[%d] = %d\n", i, arrayNumeros[i]);
+            totalPares++;
         }
     }
+
+    if(totalPares == 0){
+        printf("Nenhum número par encontrado!\n");
+    }
+    else{
+        printf("Total de números pares na array: %d\n", totalPares);
+    }
+
+    printf("=== FIM DA LISTAGEM ===\n");
 }
 
 //Verificar se o número é ímpar
@@ -160,13 +172,26 @@ bool isImpar(int numero){
 
 //Listar números impares
 void listarImpares(int arrayNumeros[]){
-    printf("Números Impares:\n");
+    int totalImpares = 0;
+
+    printf("\n=== NÚMEROS IMPARES ===\n");
 
     for(int i = 0; i < TAM; i++){
         if(isImpar(arrayNumeros[i])){
             printf("[%d] = %d\n", i, arrayNumeros[i]);
+            totalImpares++;
         }
     }
+
+    if(totalImpares == 0){
+        printf("Nenhum número impar encontrado!\n");
+    }
+    else{
+        printf("\n|Total de números impares na array: %d |\n\n", totalImpares);
+    }
+
+    printf("=== FIM DA LISTAGEM ===\n");
+
 }
 
 //Verificar se é primo
@@ -184,13 +209,139 @@ bool isPrimo(int numero){
 
 //Listar números primos
 void listarPrimos(int arrayNumeros[]){
+    int totalPrimos = 0;
+
     printf("Números Primos:\n");
 
     for(int i = 0; i < TAM; i++){
         if(isPrimo(arrayNumeros[i])){
             printf("[%d] = %d\n", i, arrayNumeros[i]);
+            totalPrimos++;
         }
     }
+
+    if(totalPrimos == 0){
+        printf("Nenhum número primo encontrado");
+    }else{
+        printf("\n|Total de números primos na array: %d |\n\n", totalPrimos);
+    }
+
+    printf("=== FIM DA LISTAGEM ===\n");
+}
+
+//Calculando Somatorio de todos os números.
+int somatorioNumeros(int arrayNumeros[]){
+    int somatorio = 0;
+
+    for(int i = 0; i < TAM; i++){
+        somatorio += arrayNumeros[i];
+    }
+
+    return somatorio;
+}
+
+//Imprimindo Somatorio de todos os números.
+void imprimirSomatorio(int arrayNumeros[]){
+    int soma = somatorioNumeros(arrayNumeros);
+    printf("O somatorio de todos os números é = %d", soma);
+}
+
+//Calculando média aritmética
+void mediaAritmetica(int arrayNumeros[]){
+    int somatorio = somatorioNumeros(arrayNumeros);
+    float media = (float)somatorio / TAM;
+
+    printf("A média é = %.2f\n", media);
+}
+
+//Calcular quantidades de um número com base em outro!!!!!
+void qntdNumeroIgual(int arrayNumero[]){
+    int numero = lerNumero("Digite um número: ");
+    int cont = 0;
+
+    for(int i = 0; i < TAM; i++){
+        if(numero == arrayNumero[i]){
+            cont++;
+        }
+    }
+
+    if(cont == 0){
+        printf("Não foi encontrado nenhum número na array = %d", numero);
+    }else{
+        printf("Quantidade de números iguais a %d = %d\n", numero, cont);
+    }
+}
+
+//Imprimindo Primeira ocorrência
+void primeiraOcorrencia(int arrayNumero[]){
+    int numero = 0;
+    int encontrado = 0;
+
+    while(!encontrado){
+        numero = lerNumero("Digite um número: ");
+
+        for(int i = 0; i < TAM; i++){
+            if(numero == arrayNumero[i]){
+                printf("A primeira ocorrência do número %d foi na posição [%d]\n", numero, i);
+                printf("[%d] = %d", i, arrayNumero[i]);
+                encontrado = 1;
+                break;
+            }
+        }
+
+        if(!encontrado){
+            printf("Este número não foi encontrado no array, tente novamente!\n");
+        }
+    }
+}
+
+//Imprimindo Ultima ocorrência
+void ultimaOcorrencia(int arrayNumero[]){
+    int numero = 0;
+    int ultimaPosicao = -1;
+
+    while(ultimaPosicao == -1){
+        numero = lerNumero("Digite um número: ");
+
+        for(int i = 0; i < TAM; i++){
+            if(numero == arrayNumero[i]){
+                ultimaPosicao = i;
+            }
+        }
+
+        if(ultimaPosicao == -1){
+            printf("Este número não foi encontrado no array, tente novamente!\n");
+        }
+    }
+
+    printf("A última ocorrência do número %d foi na posição [%d]\n", numero, ultimaPosicao);
+    printf("[%d] = %d\n", ultimaPosicao, arrayNumero[ultimaPosicao]);
+}
+
+//Imprimindo maior número
+void maiorNumero(int arrayNumero[]){
+    int maior = arrayNumero[0];
+
+    for(int i = 1; i < TAM; i++){
+        if(arrayNumero[i] > maior){
+            maior = arrayNumero[i];
+        }
+    }
+
+    printf("Maior número = %d", maior);
+}
+
+//Imprimindo menor número
+void menorNumero(int arrayNumero[]){
+    int menor = arrayNumero[0];
+
+    for(int i = 1; i < TAM; i++){
+        if(arrayNumero[i] < menor){
+            menor = arrayNumero[i];
+        }
+    }
+
+    printf("Menor número = %d", menor);
 }
 
 //Gerar novos números pra array
@@ -227,8 +378,6 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     system("color 0A");
 
-
-
     do{
         opcao = menu();
         if(opcao < 12 && verificarArrayZerada(arrayNumeros)){
@@ -244,6 +393,13 @@ int main(){
             case 2: listarPares(arrayNumeros); break;
             case 3: listarImpares(arrayNumeros); break;
             case 4: listarPrimos(arrayNumeros); break;
+            case 5: imprimirSomatorio(arrayNumeros); break;
+            case 6: mediaAritmetica(arrayNumeros); break;
+            case 7: qntdNumeroIgual(arrayNumeros); break;
+            case 8: primeiraOcorrencia(arrayNumeros); break;
+            case 9: ultimaOcorrencia(arrayNumeros); break;
+            case 10: maiorNumero(arrayNumeros); break;
+            case 11: menorNumero(arrayNumeros); break;
             case 12: gerarNovosNumeros(arrayNumeros); break;
             case 13: configurarListagem(); break;
             default: printf("Opção Inválida"); break;
